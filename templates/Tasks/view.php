@@ -50,7 +50,7 @@
                 </blockquote>
             </div>
             <div class="related">
-                <h4><?= __('Dependencies') ?></h4>
+                <h4><?= __('Blockers') ?></h4>
                 <?php if (!empty($task->predecessor_tasks)) : ?>
                 <div class="table-responsive">
                     <table>
@@ -71,7 +71,7 @@
                             <td><?= h($predecessorTasks->modified) ?></td>
                             <td><?= h($predecessorTasks->project_id) ?></td>
                             <td><?= h($predecessorTasks->name) ?></td>
-                            <td><?= h($predecessorTasks->description) ?></td>
+                            <td><?= h($this->Text->truncate($predecessorTasks->description, 22)) ?></td>
                             <td><?= h($predecessorTasks->completed) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Tasks', 'action' => 'view', $predecessorTasks->id]) ?>
@@ -85,7 +85,7 @@
                 <?php endif; ?>
             </div>
             <div class="related">
-                <h4><?= __('Blockers') ?></h4>
+                <h4><?= __('Blocks') ?></h4>
                 <?php if (!empty($task->successor_tasks)) : ?>
                 <div class="table-responsive">
                     <table>
@@ -106,7 +106,7 @@
                             <td><?= h($successorTasks->modified) ?></td>
                             <td><?= h($successorTasks->project_id) ?></td>
                             <td><?= h($successorTasks->name) ?></td>
-                            <td><?= h($successorTasks->description) ?></td>
+                            <td><?= h($this->Text->truncate($successorTasks->description, 22)) ?></td>
                             <td><?= h($successorTasks->completed) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Tasks', 'action' => 'view', $successorTasks->id]) ?>

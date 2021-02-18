@@ -63,7 +63,7 @@
                             <td><?= h($tasks->modified) ?></td>
                             <td><?= h($tasks->project_id) ?></td>
                             <td><?= h($tasks->name) ?></td>
-                            <td><?= h($tasks->description) ?></td>
+                            <td><?= h($this->Text->truncate($tasks->description, 22)) ?></td>
                             <td><?= h($tasks->completed) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Tasks', 'action' => 'view', $tasks->id]) ?>

@@ -23,11 +23,11 @@
                     echo $this->Form->control('completed');
                     echo $this->Form->control('predecessor_tasks._ids', [
                         'options' => $predecessorTasks,
-                        'label' => 'Dependencies',
+                        'label' => 'Blockers',
                     ]);
                     echo $this->Form->control('successor_tasks._ids', [
                         'options' => $successorTasks,
-                        'label' => 'Blockers',
+                        'label' => 'Blocks',
                     ]);
                 ?>
             </fieldset>
