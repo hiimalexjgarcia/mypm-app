@@ -56,11 +56,11 @@ class TaskWorkLogFixture extends TestFixture
                 'id' => '2d0f66d9-2414-467e-8007-f393150efccc',
                 'created' => '2021-02-10 11:47:16',
                 'modified' => '2021-02-10 11:47:16',
-                'task_id' => '14cefe41-4136-479e-816e-bae9692afb27',
+                'task_id' => '304d382d-2402-485c-b116-0cda2c879e40',
                 'title' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'start' => '2021-02-10 11:47:16',
-                'end' => '2021-02-10 11:47:16',
+                'end' => '2021-02-10 13:47:16',
             ],
         ];
         parent::init();
