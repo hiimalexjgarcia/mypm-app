@@ -45,6 +45,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
         </div>
     </nav>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <a class="button" style="width: 100%" href="/projects">Projects</a>
+            </div>
+            <div class="column">
+                <a class="button" style="width: 100%" href="/tasks">Tasks</a>
+            </div>
+            <div class="column">
+                <a class="button" style="width: 100%" href="/task-work-log">Work Log</a>
+            </div>
+        </div>
+    </div>
     <main class="main">
         <div class="container">
             <?= $this->Flash->render() ?>
