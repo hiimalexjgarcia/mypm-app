@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -12,7 +10,6 @@ use Cake\Validation\Validator;
  * Projects Model
  *
  * @property \App\Model\Table\TasksTable&\Cake\ORM\Association\HasMany $Tasks
- *
  * @method \App\Model\Entity\Project newEmptyEntity()
  * @method \App\Model\Entity\Project newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Project[] newEntities(array $data, array $options = [])
@@ -26,7 +23,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Project[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
  * @method \App\Model\Entity\Project[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Project[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
- *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class ProjectsTable extends Table

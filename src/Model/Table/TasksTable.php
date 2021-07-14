@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -13,7 +12,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\ProjectsTable&\Cake\ORM\Association\BelongsTo $Projects
  * @property \App\Model\Table\TaskWorkLogTable&\Cake\ORM\Association\HasMany $TaskWorkLog
- *
  * @method \App\Model\Entity\Task newEmptyEntity()
  * @method \App\Model\Entity\Task newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Task[] newEntities(array $data, array $options = [])
@@ -27,7 +25,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Task[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
  * @method \App\Model\Entity\Task[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Task[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
- *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class TasksTable extends Table
