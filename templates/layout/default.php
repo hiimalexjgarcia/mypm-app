@@ -54,7 +54,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <a class="button" style="width: 100%" href="/tasks">Tasks</a>
             </div>
             <div class="column">
-                <a class="button" style="width: 100%" href="/task-work-log">Work Log</a>
+                <a class="button" style="width: 100%" href="/task-work-log">Work</a>
             </div>
         </div>
     </div>
