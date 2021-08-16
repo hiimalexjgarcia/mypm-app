@@ -100,12 +100,9 @@ const nodes = new vis.DataSet(
 );
 
 const edges = new vis.DataSet(
-  project.tasks
-    .map((t) => t.predecessor_tasks)
-    .flat()
-    .map((t) => {
-      return { from: t._joinData.predecessor_task_id, to: t._joinData.successor_task_id }
-    })
+  project.tasks.map((t) => t.predecessor_tasks).flat().map((t) => {
+    return { from: t._joinData.predecessor_task_id, to: t._joinData.successor_task_id }
+  })
 );
 
 const data = {
@@ -117,10 +114,17 @@ const options = {
   edges: {
     arrows: 'to'
   },
+  nodes: {
+    shape: 'box',
+    shapeProperties: {
+      borderRadius: 0
+    },
+    widthConstraint: 150
+  },
   layout: {
     hierarchical: {
-        enabled: true,
-        direction: 'UD'
+        direction: 'LR',
+        levelSeparation: 300
     }
   },
   interaction: {
