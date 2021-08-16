@@ -33,7 +33,13 @@ class ProjectsController extends AppController
     public function view($id = null)
     {
         $project = $this->Projects->get($id, [
-            'contain' => ['Tasks'],
+            'contain' => [
+                'Tasks' => [
+                    'TaskWorkLog',
+                    'PredecessorTasks' => ['TaskWorkLog'],
+                    'SuccessorTasks' => ['TaskWorkLog'],
+                ],
+            ],
         ]);
 
         $this->set(compact('project'));

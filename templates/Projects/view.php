@@ -41,6 +41,10 @@
                     <?= $this->Text->autoParagraph(h($project->description)); ?>
                 </blockquote>
             </div>
+            <div class="text">
+                <strong><?= __('Network') ?></strong>
+                <div id="network" style="height: 400px; background-color:#eee"></div>
+            </div>
             <div class="related">
                 <h4><?= __('Related Tasks') ?></h4>
                 <?php if (!empty($project->tasks)) : ?>
@@ -79,3 +83,56 @@
         </div>
     </div>
 </div>
+
+<?= $this->Html->script('https://unpkg.com/vis-network/standalone/umd/vis-network.min.js', ['block' => 'script']); ?>
+<?php $this->Html->scriptStart(['defer' => true]); ?>
+
+(() => {
+
+const project = <?= json_encode($project) ?>;
+
+const container = document.getElementById('network');
+
+const nodes = new vis.DataSet(
+  project.tasks.map((t) => {
+    return { id: t.id, label: t.name }
+  })
+);
+
+const edges = new vis.DataSet(
+  project.tasks
+    .map((t) => t.predecessor_tasks)
+    .flat()
+    .map((t) => {
+      return { from: t._joinData.predecessor_task_id, to: t._joinData.successor_task_id }
+    })
+);
+
+const data = {
+  nodes: nodes,
+  edges: edges
+};
+
+const options = {
+  edges: {
+    arrows: 'to'
+  },
+  layout: {
+    hierarchical: {
+        enabled: true,
+        direction: 'UD'
+    }
+  },
+  interaction: {
+    dragNodes: false,
+    selectable: false,
+    selectConnectedEdges: false
+  }
+};
+
+const network = new vis.Network(container, data, options);
+
+})();
+
+
+<?= $this->Html->scriptEnd(); ?>
