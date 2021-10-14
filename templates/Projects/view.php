@@ -95,7 +95,7 @@ const container = document.getElementById('network');
 
 const nodes = new vis.DataSet(
   project.tasks.map((t) => {
-    return { id: t.id, label: t.name }
+    return { id: t.id, label: t.name, title: t.description }
   })
 );
 
@@ -119,7 +119,10 @@ const options = {
     shapeProperties: {
       borderRadius: 0
     },
-    widthConstraint: 150
+    widthConstraint: 150,
+    shadow: {
+        enabled: true
+    },
   },
   layout: {
     hierarchical: {
@@ -136,7 +139,12 @@ const options = {
 
 const network = new vis.Network(container, data, options);
 
-})();
+network.on('click', (e) => {
+  const node = network.getNodeAt(e.pointer.DOM);
+  if (node)
+    window.location = '/tasks/view/' + node;
+})
 
+})();
 
 <?= $this->Html->scriptEnd(); ?>
