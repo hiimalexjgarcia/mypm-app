@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_password
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_user_pass
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  app:
+    build:
+      context: .
+    environment:
+      DEBUG: "false"
+      APP_NAME: mypm-app
+      APP_ENCODING: UTF-8
+      APP_DEFAULT_LOCALE: en_US
+      APP_DEFAULT_TIMEZONE: UTC
+      SECURITY_SALT: D2F8476392414281086663AC0B16E87B8ADBF4C5F84E903AA3EDD7E00E9C0FE5
+      DATABASE_URL: mysql://db_user:db_user_pass@db/app_db?encoding=utf8&timezone=UTC&cacheMetadata=true&quoteIdentifiers=false&persistent=false
+    labels:
+      traefik.enable: true
+      traefik.http.routers.leads-app.rule: "Host(`mypm-app`)"
+
+volumes:
+  dbdata:
