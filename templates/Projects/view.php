@@ -43,7 +43,7 @@
             </div>
             <div class="text">
                 <strong><?= __('Network') ?></strong>
-                <div id="network" style="height: 400px; background-color:#eee"></div>
+                <div id="network" style="background-color:#eee"></div>
             </div>
             <div class="related">
                 <h4><?= __('Related Tasks') ?></h4>
@@ -84,7 +84,7 @@
     </div>
 </div>
 
-<?= $this->Html->script('https://unpkg.com/vis-network/standalone/umd/vis-network.min.js', ['block' => 'script']); ?>
+<?= $this->Html->script('https://unpkg.com/vis-network@9.1.2/standalone/umd/vis-network.min.js', ['block' => 'script']); ?>
 <?php $this->Html->scriptStart(['defer' => true]); ?>
 
 (() => {
@@ -101,7 +101,7 @@ const nodes = new vis.DataSet(
 
 const edges = new vis.DataSet(
   project.tasks.map((t) => t.predecessor_tasks).flat().map((t) => {
-    return { from: t._joinData.predecessor_task_id, to: t._joinData.successor_task_id }
+    return { from: t._joinData.predecessor_task_id, to: t._joinData.task_id }
   })
 );
 
@@ -119,15 +119,14 @@ const options = {
     shapeProperties: {
       borderRadius: 0
     },
-    widthConstraint: 150,
     shadow: {
-        enabled: true
+      enabled: true
     },
   },
   layout: {
     hierarchical: {
-        direction: 'LR',
-        levelSeparation: 300
+      direction: 'LR',
+      sortMethod: 'directed'
     }
   },
   interaction: {

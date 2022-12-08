@@ -55,13 +55,13 @@ class TasksTable extends Table
         $this->belongsToMany('PredecessorTasks', [
             'className' => 'Tasks',
             'targetForeignKey' => 'predecessor_task_id',
-            'foreignKey' => 'successor_task_id',
+            'foreignKey' => 'task_id',
             'joinTable' => 'task_dependencies',
             'dependent' => true,
         ]);
         $this->belongsToMany('SuccessorTasks', [
             'className' => 'Tasks',
-            'targetForeignKey' => 'successor_task_id',
+            'targetForeignKey' => 'task_id',
             'foreignKey' => 'predecessor_task_id',
             'joinTable' => 'task_dependencies',
             'dependent' => true,
