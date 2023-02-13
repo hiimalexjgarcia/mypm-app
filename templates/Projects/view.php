@@ -43,7 +43,7 @@
             </div>
             <div class="text">
                 <strong><?= __('Network') ?></strong>
-                <div id="network" style="background-color:#eee"></div>
+                <div id="network" style="background-color:#eee;height:50vh"></div>
             </div>
             <div class="related">
                 <h4><?= __('Related Tasks') ?></h4>
