@@ -12,6 +12,7 @@
             <?= $this->Form->postLink(__('Delete Project'), ['action' => 'delete', $project->id], ['confirm' => __('Are you sure you want to delete # {0}?', $project->id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('List Projects'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Project'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('New Task'), ['controller' => 'Tasks', 'action' => 'add', '?' => ['project_id' => $project->id]], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
@@ -122,6 +123,9 @@ const options = {
     shadow: {
       enabled: true
     },
+    widthConstraint: {
+      maximum: 150
+    },
   },
   layout: {
     hierarchical: {
@@ -138,7 +142,7 @@ const options = {
 
 const network = new vis.Network(container, data, options);
 
-network.on('click', (e) => {
+network.on('doubleClick', (e) => {
   const node = network.getNodeAt(e.pointer.DOM);
   if (node)
     window.location = '/tasks/view/' + node;

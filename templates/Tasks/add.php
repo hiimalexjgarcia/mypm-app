@@ -17,7 +17,7 @@
             <fieldset>
                 <legend><?= __('Add Task') ?></legend>
                 <?php
-                    echo $this->Form->control('project_id', ['options' => $projects]);
+                    echo $this->Form->select('project_id', ['options' => $projects], ['value' => $project]);
                     echo $this->Form->control('name');
                     echo $this->Form->control('description');
                     echo $this->Form->control('completed');
