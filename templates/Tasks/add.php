@@ -2,6 +2,9 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Task $task
+ * @var \Cake\Collection\CollectionInterface|string[] $projects
+ * @var \Cake\Collection\CollectionInterface|string[] $predecessorTasks
+ * @var \Cake\Collection\CollectionInterface|string[] $successorTasks
  */
 ?>
 <div class="row">

@@ -60,8 +60,8 @@ class TasksController extends AppController
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
         $projects = $this->Tasks->Projects->find('list', ['limit' => 200])->toArray();
-        $predecessorTasks = $this->Tasks->PredecessorTasks->find('list', ['limit' => 200]);
-        $successorTasks = $this->Tasks->SuccessorTasks->find('list', ['limit' => 200]);
+        $predecessorTasks = $this->Tasks->PredecessorTasks->find('list', ['limit' => 200])->all();
+        $successorTasks = $this->Tasks->SuccessorTasks->find('list', ['limit' => 200])->all();
         $project = $this->request->getQuery('project_id');
         $this->set(compact('task', 'projects', 'predecessorTasks', 'successorTasks', 'project'));
     }
@@ -87,9 +87,9 @@ class TasksController extends AppController
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
-        $projects = $this->Tasks->Projects->find('list', ['limit' => 200]);
-        $predecessorTasks = $this->Tasks->PredecessorTasks->find('list', ['limit' => 200]);
-        $successorTasks = $this->Tasks->SuccessorTasks->find('list', ['limit' => 200]);
+        $projects = $this->Tasks->Projects->find('list', ['limit' => 200])->all();
+        $predecessorTasks = $this->Tasks->PredecessorTasks->find('list', ['limit' => 200])->all();
+        $successorTasks = $this->Tasks->SuccessorTasks->find('list', ['limit' => 200])->all();
         $this->set(compact('task', 'projects', 'predecessorTasks', 'successorTasks'));
     }
 

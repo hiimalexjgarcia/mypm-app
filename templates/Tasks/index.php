@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Task[]|\Cake\Collection\CollectionInterface $tasks
+ * @var iterable<\App\Model\Entity\Task> $tasks
  */
 ?>
 <div class="tasks index content">

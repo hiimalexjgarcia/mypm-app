@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
+use App\Controller\ProjectsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
@@ -18,7 +19,7 @@ class ProjectsControllerTest extends TestCase
     /**
      * Fixtures
      *
-     * @var array
+     * @var array<string>
      */
     protected $fixtures = [
         'app.Projects',
@@ -29,6 +30,7 @@ class ProjectsControllerTest extends TestCase
      * Test index method
      *
      * @return void
+     * @uses \App\Controller\ProjectsController::index()
      */
     public function testIndex(): void
     {
@@ -39,6 +41,7 @@ class ProjectsControllerTest extends TestCase
      * Test view method
      *
      * @return void
+     * @uses \App\Controller\ProjectsController::view()
      */
     public function testView(): void
     {
@@ -49,6 +52,7 @@ class ProjectsControllerTest extends TestCase
      * Test add method
      *
      * @return void
+     * @uses \App\Controller\ProjectsController::add()
      */
     public function testAdd(): void
     {
@@ -59,6 +63,7 @@ class ProjectsControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+     * @uses \App\Controller\ProjectsController::edit()
      */
     public function testEdit(): void
     {
@@ -69,6 +74,7 @@ class ProjectsControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+     * @uses \App\Controller\ProjectsController::delete()
      */
     public function testDelete(): void
     {
