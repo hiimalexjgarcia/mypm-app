@@ -12,6 +12,7 @@
             <?= $this->Form->postLink(__('Delete Task'), ['action' => 'delete', $task->id], ['confirm' => __('Are you sure you want to delete # {0}?', $task->id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('List Tasks'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Task'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('New Work Log'), ['controller' => 'TaskWorkLog', 'action' => 'add', '?' => ['task_id' => $task->id]], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
@@ -19,20 +20,12 @@
             <h3><?= h($task->name) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($task->id) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Project') ?></th>
                     <td><?= $task->has('project') ? $this->Html->link($task->project->name, ['controller' => 'Projects', 'action' => 'view', $task->project->id]) : '' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Name') ?></th>
                     <td><?= h($task->name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($task->created) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Modified') ?></th>
@@ -55,10 +48,7 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
-                            <th><?= __('Project Id') ?></th>
                             <th><?= __('Name') ?></th>
                             <th><?= __('Description') ?></th>
                             <th><?= __('Completed') ?></th>
@@ -66,11 +56,8 @@
                         </tr>
                         <?php foreach ($task->predecessor_tasks as $predecessorTasks) : ?>
                         <tr>
-                            <td><?= h($predecessorTasks->id) ?></td>
-                            <td><?= h($predecessorTasks->created) ?></td>
                             <td><?= h($predecessorTasks->modified) ?></td>
-                            <td><?= h($predecessorTasks->project_id) ?></td>
-                            <td><?= h($predecessorTasks->name) ?></td>
+                            <td><?= h($this->Text->truncate($$predecessorTasks->name, 22)) ?></td>
                             <td><?= h($this->Text->truncate($predecessorTasks->description, 22)) ?></td>
                             <td><?= h($predecessorTasks->completed) ?></td>
                             <td class="actions">
@@ -90,10 +77,7 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
-                            <th><?= __('Project Id') ?></th>
                             <th><?= __('Name') ?></th>
                             <th><?= __('Description') ?></th>
                             <th><?= __('Completed') ?></th>
@@ -101,11 +85,8 @@
                         </tr>
                         <?php foreach ($task->successor_tasks as $successorTasks) : ?>
                         <tr>
-                            <td><?= h($successorTasks->id) ?></td>
-                            <td><?= h($successorTasks->created) ?></td>
                             <td><?= h($successorTasks->modified) ?></td>
-                            <td><?= h($successorTasks->project_id) ?></td>
-                            <td><?= h($successorTasks->name) ?></td>
+                            <td><?= h($this->Text->truncate($successorTasks->name, 22)) ?></td>
                             <td><?= h($this->Text->truncate($successorTasks->description, 22)) ?></td>
                             <td><?= h($successorTasks->completed) ?></td>
                             <td class="actions">
@@ -125,10 +106,7 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
-                            <th><?= __('Task Id') ?></th>
                             <th><?= __('Title') ?></th>
                             <th><?= __('Description') ?></th>
                             <th><?= __('Start') ?></th>
@@ -137,12 +115,9 @@
                         </tr>
                         <?php foreach ($task->task_work_log as $taskWorkLog) : ?>
                         <tr>
-                            <td><?= h($taskWorkLog->id) ?></td>
-                            <td><?= h($taskWorkLog->created) ?></td>
                             <td><?= h($taskWorkLog->modified) ?></td>
-                            <td><?= h($taskWorkLog->task_id) ?></td>
-                            <td><?= h($taskWorkLog->title) ?></td>
-                            <td><?= h($taskWorkLog->description) ?></td>
+                            <td><?= h($this->Text->truncate($taskWorkLog->title, 22)) ?></td>
+                            <td><?= h($this->Text->truncate($taskWorkLog->description, 22)) ?></td>
                             <td><?= h($taskWorkLog->start) ?></td>
                             <td><?= h($taskWorkLog->end) ?></td>
                             <td class="actions">

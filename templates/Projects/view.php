@@ -20,16 +20,8 @@
             <h3><?= h($project->name) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($project->id) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Name') ?></th>
                     <td><?= h($project->name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($project->created) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Modified') ?></th>
@@ -52,10 +44,7 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
-                            <th><?= __('Project Id') ?></th>
                             <th><?= __('Name') ?></th>
                             <th><?= __('Description') ?></th>
                             <th><?= __('Completed') ?></th>
@@ -63,11 +52,8 @@
                         </tr>
                         <?php foreach ($project->tasks as $tasks) : ?>
                         <tr>
-                            <td><?= h($tasks->id) ?></td>
-                            <td><?= h($tasks->created) ?></td>
                             <td><?= h($tasks->modified) ?></td>
-                            <td><?= h($tasks->project_id) ?></td>
-                            <td><?= h($tasks->name) ?></td>
+                            <td><?= h($this->Text->truncate($tasks->name, 22)) ?></td>
                             <td><?= h($this->Text->truncate($tasks->description, 22)) ?></td>
                             <td><?= h($tasks->completed) ?></td>
                             <td class="actions">
