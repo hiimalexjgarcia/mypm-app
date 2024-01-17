@@ -11,8 +11,6 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -21,8 +19,6 @@
             <tbody>
                 <?php foreach ($projects as $project): ?>
                 <tr>
-                    <td><?= h($project->id) ?></td>
-                    <td><?= h($project->created) ?></td>
                     <td><?= h($project->modified) ?></td>
                     <td><?= h($project->name) ?></td>
                     <td class="actions">
