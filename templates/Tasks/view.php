@@ -57,7 +57,7 @@
                         <?php foreach ($task->predecessor_tasks as $predecessorTasks) : ?>
                         <tr>
                             <td><?= h($predecessorTasks->modified) ?></td>
-                            <td><?= h($this->Text->truncate($$predecessorTasks->name, 22)) ?></td>
+                            <td><?= h($this->Text->truncate($predecessorTasks->name, 22)) ?></td>
                             <td><?= h($this->Text->truncate($predecessorTasks->description, 22)) ?></td>
                             <td><?= h($predecessorTasks->completed) ?></td>
                             <td class="actions">
