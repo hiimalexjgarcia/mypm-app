@@ -11,8 +11,6 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th><?= $this->Paginator->sort('task_id') ?></th>
                     <th><?= $this->Paginator->sort('title') ?></th>
@@ -24,8 +22,6 @@
             <tbody>
                 <?php foreach ($taskWorkLog as $taskWorkLog): ?>
                 <tr>
-                    <td><?= h($taskWorkLog->id) ?></td>
-                    <td><?= h($taskWorkLog->created) ?></td>
                     <td><?= h($taskWorkLog->modified) ?></td>
                     <td><?= $taskWorkLog->has('task') ? $this->Html->link($taskWorkLog->task->name, ['controller' => 'Tasks', 'action' => 'view', $taskWorkLog->task->id]) : '' ?></td>
                     <td><?= h($taskWorkLog->title) ?></td>

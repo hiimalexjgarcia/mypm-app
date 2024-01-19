@@ -19,20 +19,12 @@
             <h3><?= h($taskWorkLog->title) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($taskWorkLog->id) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Task') ?></th>
                     <td><?= $taskWorkLog->has('task') ? $this->Html->link($taskWorkLog->task->name, ['controller' => 'Tasks', 'action' => 'view', $taskWorkLog->task->id]) : '' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Title') ?></th>
                     <td><?= h($taskWorkLog->title) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($taskWorkLog->created) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Modified') ?></th>
