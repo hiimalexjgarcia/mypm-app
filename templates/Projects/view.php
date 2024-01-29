@@ -82,7 +82,7 @@ const container = document.getElementById('network');
 
 const nodes = new vis.DataSet(
   project.tasks.map((t) => {
-    return { id: t.id, label: t.name, title: t.description }
+    return { id: t.id, label: t.name, title: t.description, opacity: (t.completed === true ? 0.15 : 1) }
   })
 );
 
